@@ -315,7 +315,7 @@ class SecConfigure:
 						tunermask |= (1 << slot)
 
 				if currLnb.lof.value != "unicable":
-					sec.setLNBSatCR(-1)
+					sec.setLNBSatCRformat(0) #Unicable/Jess Disabled
 
 				if currLnb.lof.value == "universal_lnb":
 					sec.setLNBLOFL(9750000)
@@ -327,9 +327,7 @@ class SecConfigure:
 					sec.setLNBThreshold(currLnb.threshold.value * 1000)
 					sec.setLNBSatCR(currLnb.scrList.index)
 					sec.setLNBSatCRvco(currLnb.scrfrequency.value * 1000)
-					sec.setLNBSatCRpositions(currLnb.positions.value)
-					### TODO sec.setLNBSatCRpositionnumber(int(currLnb.positionNumber.value) + int(currLnb.positionsOffset.value))
-					### TODO sec.setLNBSatCRformat(currLnb.format.value == "jess")
+					sec.setLNBSatCRformat(currLnb.format.value == "jess" and 2 or 1)
 				elif currLnb.lof.value == "c_band":
 					sec.setLNBLOFL(5150000)
 					sec.setLNBLOFH(5150000)
