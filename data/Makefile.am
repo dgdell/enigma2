@@ -16,7 +16,7 @@ dist_pkgdata_DATA = \
 	freesat.t1 \
 	freesat.t2 \
 	timezone.xml \
-	cable.xml \
+	cables.xml \
 	unicable.xml
 
 if HAVE_TEXTLCD
